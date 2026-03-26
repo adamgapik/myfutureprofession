@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Адам | Робототехника и ИИ — моя будущая профессия</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            background: radial-gradient(circle at 10% 20%, #f8fafc, #eef2f5);
+            color: #0a1e2c;
+            line-height: 1.5;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        /* контейнер */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(0px);
+            border-radius: 48px;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        /* hero-секция с градиентом и анимацией */
+        .hero {
+            background: linear-gradient(125deg, #0b2b3f 0%, #134b5e 100%);
+            padding: 48px 32px;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            background: radial-gradient(circle, rgba(255,255,200,0.1) 0%, rgba(0,0,0,0) 70%);
+            animation: slowMove 12s infinite alternate;
+        }
+
+        @keyframes slowMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(5%, 5%); }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            position: relative;
+        }
+
+        .hero h1 span {
+            color: #FFD966;
+            border-bottom: 3px solid #FFD966;
+            display: inline-block;
+        }
+
+        .hero .tagline {
+            font-size: 1.2rem;
+            max-width: 550px;
+            margin: 1rem auto 0;
+            opacity: 0.9;
+            border-left: 3px solid #FFD966;
+            padding-left: 1.2rem;
+            text-align: left;
+        }
+
+        /* контент */
+        .content {
+            padding: 32px 28px;
+        }
+
+        /* карточки */
+        .card {
+            background: white;
+            border-radius: 32px;
+            padding: 24px;
+            margin-bottom: 28px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e5edf2;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 24px 36px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #0B2B40;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-left: 5px solid #00A6C4;
+            padding-left: 16px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 28px;
+        }
+
+        /* списки */
+        .list-styled {
+            list-style: none;
+            padding: 0;
+        }
+        .list-styled li {
+            margin-bottom: 12px;
+            padding-left: 28px;
+            position: relative;
+            font-size: 1rem;
+        }
+        .list-styled li::before {
+            content: "▹";
+            position: absolute;
+            left: 4px;
+            color: #00A6C4;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .pros li::before {
+            content: "✓";
+            color: #1f8a5c;
+        }
+        .cons li::before {
+content: "✗";
+            color: #c74545;
+        }
+
+        /* таблица с горизонтальным скроллом */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 20px 0;
+            border-radius: 24px;
+            background: #fefefe;
+        }
+        .table-edu {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            min-width: 500px;
+        }
+        .table-edu th, .table-edu td {
+            padding: 14px 12px;
+            text-align: left;
+            border-bottom: 1px solid #e2edf2;
+        }
+        .table-edu th {
+            background: #eef3fc;
+            color: #0B2B40;
+            font-weight: 700;
+        }
+        .edu-link {
+            color: #1e6f7c;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px dashed #00A6C4;
+        }
+        .edu-link:hover {
+            color: #0B2B40;
+        }
+
+        /* выделенный блок */
+        .highlight {
+            background: #FFFAE6;
+            border-left: 6px solid #FFD966;
+            padding: 20px 24px;
+            border-radius: 28px;
+            margin: 24px 0;
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 1rem;
+            color: #2c4e62;
+            border-left: 3px solid #FFD966;
+            padding-left: 18px;
+            margin: 20px 0;
+        }
+
+        /* кнопки */
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 20px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #00A6C4;
+            color: white;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 60px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-dark {
+            background: #0B2B40;
+        }
+        .btn:hover {
+            transform: scale(1.02);
+            background: #0B2B40;
+            box-shadow: 0 6px 14px rgba(0,166,196,0.3);
+        }
+        .btn-dark:hover {
+            background: #00A6C4;
+        }
+
+        /* подвал */
+        footer {
+            background: #0B2B40;
+            color: #cbdce3;
+            text-align: center;
+            padding: 28px 20px;
+            font-size: 0.8rem;
+        }
+
+        /* адаптивность */
+        min-width: 768px {
+            .grid-2 {
+                grid-template-columns: 1fr 1fr;
+                gap: 28px;
+            }
+            .hero h1 {
+                font-size: 4rem;
+            }
+            .hero .tagline {
+                font-size: 1.3rem;
+            }
+            .content {
+                padding: 44px 40px;
+            }
+        }
+
+        max-width: 480px {
+            body {
+                padding: 12px;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .card h2 {
+                font-size: 1.5rem;
+            }
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* анимация появления */
+        .fade-up {
+            animation: fadeUp 0.5s ease forwards;
+        }
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container fade-up">
+    <div class="hero">
+        <h1>Робототехника <span>+ ИИ</span></h1>
+        <div class="tagline">Моя будущая профессия — инженер, проектирующий умные системы и автоматизацию</div>
+    </div>
+
+    <div class="content">
+        <!-- актуальность -->
+        <div class="card">
+            <h2>📈 Актуальность на 2030+</h2>
+            <p>Мир строит ИИ-инфраструктуру: дата-центры, беспилотники, промышленные роботы. Рынок робототехники достигнет $300 млрд, а спрос на инженеров, сочетающих программирование и физику, вырастет на 25–30%. Специалист по автоматизации — новая элита инженерии.</p>
+            <div class="quote">«Электрики и инженеры-автоматизаторы станут главными героями цифровой эпохи. Код без железа не работает».</div>
+        </div>
+
+        <!-- плюсы/минусы -->
+        <div class="grid-2">
+            <div class="card">
+                <h2>✅ Ключевые плюсы</h2>
+                <ul class="list-styled pros">
+                    <li>Зарплата Junior: от 120 000 ₽, Senior: до 600 000+ ₽</li>
+                    <li>Работа над дронами, AI, биомехатроникой, космосом</li>
+                    <li>Диплом ИТМО/Политеха открывает двери в глобальные компании</li>
+                    <li>Творческая инженерия + код — редкое сочетание</li>
+                    <li>Прямой путь к своему бизнесу в автоматизации</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2>⚠️ С чем придётся справляться</h2>
+                <ul class="list-styled cons">
+                    <li>Сложный старт: физика, механика, электроника, программирование</li>
+                    <li>Постоянное обучение (технологии обновляются быстро)</li>
+                    <li>Высокая цена ошибки в промышленности</li>
+                    <li>На первых курсах — большой объём теории</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- вузы и специальности -->
+        <div class="card">
+            <h2>🏛️ Топ вузов СПб (куда я поступаю)</h2>
+            <div class="table-wrapper">
+                <table class="table-edu">
+                    <thead><tr><th>Университет</th><th>Специальность</th><th>Проходной (ориентир)</th></tr></thead>
+                    <tbody>
+                        <tr><td><a href="https://itmo.ru/ru/" class="edu-link" target="_blank">ИТМО</a></td><td>Системы управления движением и навигация</td><td>≈ 248–255</td></tr>
+                        <tr><td><a href="https://itmo.ru/ru/" class="edu-link" target="_blank">ИТМО</a></td><td>Мехатроника и робототехника</td><td>≈ 250–260</td></tr>
+                        <tr><td><a href="https://itmo.ru/ru/" class="edu-link" target="_blank">ИТМО</a></td><td>Автоматизация технологических процессов</td><td>≈ 250–260</td></tr>
+                        <tr><td><a href="https://spmi.ru/" class="edu-link" target="_blank">Горный университет</a></td><td>Автоматизация технологических процессов</td><td>≈ 220–240</td></tr>
+                        <tr><td><a href="https://www.spbstu.ru/" class="edu-link" target="_blank">Политех (СПбПУ)</a></td><td>Мехатроника и робототехника</td><td>≈ 245–260</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="highlight">
+                🎯 <strong>Мой приоритет:</strong> ИТМО (Системы управления движением / Мехатроника). Надёжный бюджетный запас — Горный университет.
+            </div>
+        </div>
+
+        <!-- навыки + карьера -->
+        <div class="grid-2">
+            <div class="card">
+                <h2>🛠️ Навыки, которые развиваю</h2>
+                <ul class="list-styled">
+                    <li>Python, C++, ROS (Robot Operating System)</li>
+                    <li>Микроконтроллеры, ПЛК, SCADA-системы</li>
+                    <li>Компьютерное зрение, основы машинного обучения</li>
+                    <li>Английский C1 (технический, международная документация)</li>
+                    <li>Git, GitHub, автоматизация сборки</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2>💼 Куда ведёт эта специальность</h2>
+                <ul class="list-styled">
+                    <li>Инженер АСУ ТП → Руководитель проектов → CTO</li>
+                    <li>Разработчик робототехники (Яндекс, Сбер, Siemens)</li>
+                    <li>Специалист по AI / Computer Vision в промышленности</li>
+                    <li>Основатель стартапа в автоматизации / энергоэффективности</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- перспективы -->
+        <div class="card">
+            <h2>💰 Зарплаты и финансовая цель</h2>
+            <p><strong>Junior (стажёр):</strong> 70 000 – 120 000 ₽
+
+            <strong>Middle/Senior:</strong> 200 000 – 450 000 ₽ (РФ) / $80 000 – $150 000 (глобальный рынок)
+
+            <strong>Ведущий инженер / CTO:</strong> от 500 000 ₽ + опционы</p>
+            <p>Моя личная цель — создать технологический бизнес в инфраструктуре ИИ и выйти на капитал 110+ млн ₽ к 30 годам. Этот сайт — часть моего пути.</p>
+        </div>
+
+        <!-- моя миссия + активные ссылки -->
+        <div class="highlight" style="background:#E7F2F5; border-left-color:#0B2B40;">
+            <h3 style="margin-bottom: 10px;">🧠 Моя миссия</h3>
+            <p>Меня зовут Адам, я готовлюсь к ЕГЭ и поступаю в ИТМО / Горный. Уже веду Telegram-канал <strong>«Adam's Algorithm»</strong>, где делюсь стратегией, разборами и инсайтами. Хочу стать инженером, который проектирует «мозги» для дата-центров и роботов, а затем — создать свой стартап.</p>
+            <div class="button-group">
+                <a href="https://t.me/adam_algorithm" class="btn" target="_blank">📱 Мой Telegram-канал</a>
+                <a href="https://github.com/adamgapik" class="btn btn-dark" target="_blank">🐙 Мои проекты (GitHub)</a>
+                <a href="#" class="btn" style="background:#FFD966; color:#0B2B40;">📂 Портфолио</a>
+            </div>
+            <p style="margin-top: 20px; font-style: italic;">«Мир тебе ничего не должен. Ты либо берёшь, что хочешь, либо довольствуешься тем, что дают».</p>
+        </div>
+
+        <!-- интерактивный блок: факт дня -->
+        <div class="card" style="text-align: center; background: linear-gradient(115deg, #fff 0%, #f9fcfd 100%);">
+            <h2 style="border-left: none; text-align: center;">🤖 Интерактив</h2>
+            <p id="factText" style="font-size: 1.1rem; margin-bottom: 16px;">Нажми на кнопку, чтобы узнать факт о робототехнике</p>
+            <button class="btn btn-dark" id="randomFactBtn">✨ Показать факт</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 — Адам. Сайт о моей будущей профессии | Робототехника, ИИ, автоматизация</p>
+        <p style="margin-top: 8px;">#ИТМО #Мехатроника #Автоматизация #AdamAlgorithm</p>
+    </footer>
+</div>
+
+<script>
+    const facts = [
+        "Первый промышленный робот Unimate начал работать на заводе General Motors в 1961 году.",
+        "К 2030 году более 50% всех производственных задач будут выполняться роботами.",
+        "Системы компьютерного зрения уже сейчас могут обнаруживать дефекты на конвейере точнее человека.",
+        "Самая быстрорастущая отрасль робототехники — медицинские роботы (хирургия, реабилитация).",
+        "Нейросети научились проектировать более эффективные формы роботов за считанные часы.",
+        "В 2026 году дата-центры потребляют уже ~3% мировой электроэнергии — инженеры-автоматизаторы решают эту проблему."
+    ];
+    const factBtn = document.getElementById('randomFactBtn');
+    const factText = document.getElementById('factText');
+    if (factBtn) {
+        factBtn.addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            factText.textContent = facts[randomIndex];
+        });
+    }
+</script>
+</body>
+</html>
