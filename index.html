@@ -421,11 +421,7 @@
         const randomIndex = Math.floor(Math.random() * facts.length);
         document.getElementById('factText').textContent = facts[randomIndex];
     }
-
-    // загрузка при старте
     fetchRoboFact();
-
-    // кнопка обновления
     document.getElementById('refreshFactBtn').addEventListener('click', () => {
         fetchRoboFact();
     });
